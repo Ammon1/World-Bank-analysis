@@ -1,4 +1,4 @@
-Script performer using python, data from World Bank and K Mean allegory’s. Null values removed so not all taken into account
+Script performer using python, data from World Bank and K Mean allgorhytm. Null values removed so not all taken into account
 
 Red-mostly Euro Land and rich countries
 Blue- latin America, East and middle Asia, upper middle income
