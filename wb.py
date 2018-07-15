@@ -14,34 +14,34 @@ date3=(datetime.datetime(1960, 1, 1),datetime.datetime(1960, 2, 2))
 
 #grab indicators above for countires above and load into data frame
 GNP= {'NY.GNP.PCAP.CD':'GNI per Capita'}
-GNP_2016 = wbdata.get_dataframe(GNP, country="all", data_date=date,convert_date=False)
+GNP_2012 = wbdata.get_dataframe(GNP, country="all", data_date=date,convert_date=False)
 
-life = {'SP.DYN.LE00.IN':'life_2016'}
-life_2016 = wbdata.get_dataframe(life, country="all", data_date=date,convert_date=False)
+life = {'SP.DYN.LE00.IN':'life_2012'}
+life_2011 = wbdata.get_dataframe(life, country="all", data_date=date,convert_date=False)
 
 life = {'SP.DYN.LE00.IN':'life_1960'}
 life_1960 = wbdata.get_dataframe(life, country="all", data_date=date3,convert_date=False)
 
 ferility={'SP.DYN.TFRT.IN':'Total Fertility Rate'}
-fer_2016 = wbdata.get_dataframe(ferility, country="all", data_date=date,convert_date=False)
+fer_2012 = wbdata.get_dataframe(ferility, country="all", data_date=date,convert_date=False)
 
 
-population1={'SP.POP.TOTL':'Population_2016'}
-population2={'SP.POP.TOTL':'Population_2017'}
-pop_2016= wbdata.get_dataframe(population1, country="all", data_date=date,convert_date=False)
-pop_2017= wbdata.get_dataframe(population2, country="all", data_date=date1,convert_date=False)
+population1={'SP.POP.TOTL':'Population_2011'}
+population2={'SP.POP.TOTL':'Population_2012'}
+pop_2011= wbdata.get_dataframe(population1, country="all", data_date=date,convert_date=False)
+pop_2012= wbdata.get_dataframe(population2, country="all", data_date=date1,convert_date=False)
 
 
 
 migration={'SM.POP.NETM':'Migration'}
 migration_2012=wbdata.get_dataframe(migration, country="all", data_date=date2,convert_date=False)
 #df is "pivoted", pandas' unstack fucntion helps reshape it into something plottable
-result = pd.concat([GNP_2016, fer_2016,pop_2016,pop_2017,migration_2012,life_1960,life_2016], axis=1, sort=False)
+result = pd.concat([GNP_2012, fer_2012,pop_2011,pop_2012,migration_2012,life_1960,life_2011], axis=1, sort=False)
 result1=result.dropna()
 
-result1['pop_increase']=(result1['Population_2017']-result1['Population_2016'])/result1['Population_2017']
-result1['net_increase']=(result1['Population_2017']-result1['Population_2016']-result1['Migration'])/result1['Population_2017']
-result1['life_diff']=result1['life_2016']-result1['life_1960']
+result1['pop_increase']=(result1['Population_2012']-result1['Population_2011'])/result1['Population_2017']
+result1['net_increase']=(result1['Population_2012']-result1['Population_2011']-result1['Migration'])/result1['Population_202']
+result1['life_diff']=result1['life_2012']-result1['life_1960']
 
 X1=result1.iloc[:,0:2].values
 X2=result1.iloc[:,7:10].values
@@ -85,7 +85,7 @@ plt.scatter(X[y_kmeans==3,0],X[y_kmeans==3,1],s=100,c='black')
 plt.scatter(X[y_kmeans==4,0],X[y_kmeans==4,1],s=100,c='purple')
 plt.scatter(X[y_kmeans==5,0],X[y_kmeans==5,1],s=100,c='cyan')
 
-#GNP  net increase
+#GNP  migration
 plt.xlabel('gnp')
 plt.ylabel('net increase')
 plt.scatter(X[y_kmeans==0,0],X[y_kmeans==0,3],s=100,c='red')
@@ -94,10 +94,7 @@ plt.scatter(X[y_kmeans==2,0],X[y_kmeans==2,3],s=100,c='green')
 plt.scatter(X[y_kmeans==3,0],X[y_kmeans==3,3],s=100,c='black')
 plt.scatter(X[y_kmeans==4,0],X[y_kmeans==4,3],s=100,c='purple')
 plt.scatter(X[y_kmeans==5,0],X[y_kmeans==5,3],s=100,c='cyan')
-#zero increase line
 plt.plot([0, 90000], [0, 0], 'k-', lw=2)
-#GNP of 0 increase line 
-#for Euro sphere is almost exackly 40000
 plt.plot([40000, 40000], [-0.2, 0.1], 'k-', lw=2)
 
 
