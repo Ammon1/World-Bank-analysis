@@ -58,7 +58,7 @@ OECD members
 Post-demographic dividend
 
 ![alt text](https://github.com/Ammon1/World-Bank-analysis/blob/master/netIncrease_GNP.png)
-
+![alt text](https://github.com/Ammon1/World-Bank-analysis/blob/master/ferility_gnp.png)
  
 
  
