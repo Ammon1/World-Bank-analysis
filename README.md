@@ -66,13 +66,8 @@ GNP- GNP per population
 ![alt text](https://github.com/Ammon1/World-Bank-analysis/blob/master/gnp_pop-increase.png)
 ![alt text](https://github.com/Ammon1/World-Bank-analysis/blob/master/netIncrease_GNP.png)
 
- 
-
- 
-
- 
- 
- 
+License:
+Open
  
 
 
