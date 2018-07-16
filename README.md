@@ -57,6 +57,9 @@ North America
 OECD members
 Post-demographic dividend
 
+Net increase- population increase minus migration
+GNP- GNP per population
+
 ![alt text](https://github.com/Ammon1/World-Bank-analysis/blob/master/netIncrease_GNP.png)
 ![alt text](https://github.com/Ammon1/World-Bank-analysis/blob/master/ferility_gnp.png)
  
